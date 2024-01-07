@@ -1,4 +1,4 @@
-import { createContext, useReducer, Dispatch, ReactNode } from "react";
+import { createContext, useReducer, Dispatch, ReactNode, useContext } from "react";
 
 interface QuickstartState {
   linkSuccess: boolean;
@@ -47,7 +47,10 @@ const Context = createContext<QuickstartContext>(
   initialState as QuickstartContext
 );
 
+// assign the context to the provider
 const { Provider } = Context;
+
+// function is to return a context provider
 export const QuickstartProvider: React.FC<{ children: ReactNode }> = (
   props
 ) => {
@@ -69,3 +72,13 @@ export const QuickstartProvider: React.FC<{ children: ReactNode }> = (
 };
 
 export default Context;
+
+export function usePlaidContext(){
+    const reducerState = useContext(Context);
+
+    if (reducerState === undefined){
+      throw new Error('usePlaidContext must be used with QuickstartProvider wrapper')
+    }
+    
+    return reducerState;
+}

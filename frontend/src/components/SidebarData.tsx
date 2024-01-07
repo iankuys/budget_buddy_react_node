@@ -3,13 +3,14 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import BookIcon from '@mui/icons-material/Book';
 import LoginIcon from '@mui/icons-material/Login';
+import HomeIcon from '@mui/icons-material/Home';
 
 export const SidebarData: {title: string, icon: any, link: string}[] = [
     
     {
-        title: "Link Account",
-        icon: <LoginIcon />,
-        link: "/plaidLink"
+        title: "Home",
+        icon: <HomeIcon />,
+        link: "/"
     },
     {
         title: "Dashboard",
@@ -25,5 +26,10 @@ export const SidebarData: {title: string, icon: any, link: string}[] = [
         title: "Planner",
         icon: <BookIcon />,
         link: "/planner"
+    },
+    {
+        title: "Link Account",
+        icon: <LoginIcon />,
+        link: "/plaidLink"
     },
 ]

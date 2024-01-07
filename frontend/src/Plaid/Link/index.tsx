@@ -61,6 +61,7 @@ const Link = () => {
     onSuccess,
   };
 
+  console.log(window.location.href);
   if (window.location.href.includes("?oauth_state_id=")) {
     // TODO: figure out how to delete this ts-ignore
     // @ts-ignore
@@ -70,9 +71,12 @@ const Link = () => {
 
   console.log("Step 3: Calling usePlaidLink with a real link token");
   const { open, ready } = usePlaidLink(config);
+  console.log("Success!");
 
   useEffect(() => {
-    if (isOauth && ready) {
+    console.log(isOauth, ready);
+    if (ready) {
+      console.log("Opening....");
       open();
     }
   }, [ready, open, isOauth]);
